@@ -189,7 +189,7 @@
 </section>
 
 <section class="content" aria-label="Scripting">
-<h2 id="use-the-parser-from-your-own-code">Use the parser from your own code</h2>
+<h2 id="use-the-parser-from-your-own-code">Gunakan </h2>
 <p>The page exposes its engine on <code>window.NBT</code>, so the same parser that powers the UI can be driven from the browser console or reused in a userscript:</p>
 <pre class="code"><code>const bytes = new Uint8Array(await file.arrayBuffer());
 const { root, format, compression, headerVersion } = await NBT.read(bytes);
@@ -200,8 +200,8 @@ const out = await NBT.write(root, format, { compression, headerVersion });</code
 <p>Tags are plain objects — <code>{ type, name, value, listType }</code> — arrays are <code>Int8Array</code>, <code>Int32Array</code> and <code>BigInt64Array</code>, and longs are <code>BigInt</code>. The full <a href="nbt-format/">NBT format reference</a> documents every tag type and how each encoding differs.</p>
 </section>
 
-<section class="content" aria-label="Frequently asked questions"><h2>Frequently Asked Questions</h2><details><summary>Is this NBT editor free?</summary><div class="faq-body"><p>Yes, and open source under the MIT licence. There is no paid tier, no sign-up and no upload quota, because there is no server component at all — the whole editor is one static page plus two asset files.</p></div></details><details><summary>Does it work with Java Edition and Bedrock Edition?</summary><div class="faq-body"><p>Both. Java Edition files are big-endian and usually gzip-compressed; Bedrock files are little-endian, and <code>level.dat</code> carries an extra 8-byte header. The editor detects which one it received and writes the same variant back on save.</p></div></details><details><summary>Is my world file uploaded anywhere?</summary><div class="faq-body"><p>No. The file is read locally with the FileReader API and the download is produced from an in-memory blob. Once the page has loaded you can disconnect from the network and it still works.</p></div></details><details><summary>Can I use it on Android or iOS?</summary><div class="faq-body"><p>Yes. The layout is mobile-first with 44&nbsp;px tap targets and a fixed action bar. On Android you can pick a world file straight out of a file manager; on iOS the file has to be in the Files app first because of sandboxing.</p></div></details><details><summary>What is the difference between NBT and SNBT?</summary><div class="faq-body"><p>NBT is the binary encoding Minecraft stores on disk. SNBT is its text form, the syntax you type into commands like <code>/data merge</code>. This editor reads binary NBT and can export SNBT, which makes it easy to diff two files or paste a structure into a command.</p></div></details><details><summary>Which tools does this replace?</summary><div class="faq-body"><p>Desktop NBT editors such as NBTExplorer, plus the various single-purpose web tools that only handle one edition. See the <a href="nbtexplorer-online/">NBTExplorer online comparison</a> for what carries over and what does not.</p></div></details></section>
-<section class="content" aria-label="Related tools"><h2>Related tools</h2><div class="rel-grid"><a class="rel-card" href="level-dat-editor/"><strong>level.dat editor</strong><span>World name, game mode, spawn, difficulty and game rules.</span></a><a class="rel-card" href="java-nbt-editor/"><strong>Java Edition NBT editor</strong><span>Big-endian, gzip — Vanilla, Paper, Spigot, Fabric, Forge.</span></a><a class="rel-card" href="mcpe-nbt-editor/"><strong>MCPE NBT editor</strong><span>Little-endian NBT and the 8-byte level.dat header.</span></a><a class="rel-card" href="nbt-format/"><strong>NBT format reference</strong><span>All 13 tag types, every encoding, byte by byte.</span></a><a class="rel-card" href="mcstructure-editor/"><strong>.mcstructure editor</strong><span>Bedrock structure blocks: palette, size, block entities.</span></a><a class="rel-card" href="guides/change-world-name/"><strong>Rename a world</strong><span>Fix LevelName after copying a world folder.</span></a></div></section>
+<section class="content" aria-label="Frequently asked questions"><h2>Frequently Asked Questions </h2><details><summary>Is this NBT editor free?</summary><div class="faq-body"><p>Yes, and open source under the MIT licence. There is no paid tier, no sign-up and no upload quota, because there is no server component at all — the whole editor is one static page plus two asset files.</p></div></details><details><summary>Does it work with Java Edition and Bedrock Edition?</summary><div class="faq-body"><p>Both. Java Edition files are big-endian and usually gzip-compressed; Bedrock files are little-endian, and <code>level.dat</code> carries an extra 8-byte header. The editor detects which one it received and writes the same variant back on save.</p></div></details><details><summary>Is my world file uploaded anywhere?</summary><div class="faq-body"><p>No. The file is read locally with the FileReader API and the download is produced from an in-memory blob. Once the page has loaded you can disconnect from the network and it still works.</p></div></details><details><summary>Can I use it on Android or iOS?</summary><div class="faq-body"><p>Yes. The layout is mobile-first with 44&nbsp;px tap targets and a fixed action bar. On Android you can pick a world file straight out of a file manager; on iOS the file has to be in the Files app first because of sandboxing.</p></div></details><details><summary>What is the difference between NBT and SNBT?</summary><div class="faq-body"><p>NBT is the binary encoding Minecraft stores on disk. SNBT is its text form, the syntax you type into commands like <code>/data merge</code>. This editor reads binary NBT and can export SNBT, which makes it easy to diff two files or paste a structure into a command.</p></div></details><details><summary>Which tools does this replace?</summary><div class="faq-body"><p>Desktop NBT editors such as NBTExplorer, plus the various single-purpose web tools that only handle one edition. See the <a href="nbtexplorer-online/">NBTExplorer online comparison</a> for what carries over and what does not.</p></div></details></section>
+<section class="content" aria-label="Related tools"><h2>Related tools</h2><div class="rel-grid"><a class="rel-card" href="level-dat-editor/"><strong>level.dat editor</strong><span>World name, game mode, spawn, difficulty and game rules.</span></a><a class="rel-card" href="java-nbt-editor/"><strong>Java Edition NBT editor</strong><span>Big-endian, gzip — Vanilla, Paper, Spigot, Fabric, Forge.</span></a><a class="rel-card" href="mcpe-nbt-editor/"><strong>MCPE NBT editor</strong><span>Little-endian NBT and the 8-byte level.dat header.</span></a><a class="rel-card" href="nbt-format/"><strong>NBT format reference</strong><span>All 13 tag types, every encoding, byte by byte.</span></a><a class="rel-card" href="mcstructure-editor/"><strong>.mcstructure editor</strong><span>Bedrock structure blocks: palette, size, block entities.</span></a><a class="rel-card" href="guides/change-world-name/"><strong>Rename a world</strong><span>Perbaiki LevelName setelah menyalin dunia.</span></a></div></section>
 </div>
 </main>
 
@@ -212,7 +212,7 @@ const out = await NBT.write(root, format, { compression, headerVersion });</code
 <div><h4>Referensi</h4><a href="nbt-format/">Format NBT</a><a href="guides/change-world-name/">Ganti nama dunia</a><a href="guides/fix-corrupted-level-dat">Perbaiki level.dat yang rusak</a><a href="guides/edit-gamerules/">Edit game rules</a></div>
 <div><h4>Sumber</h4><a href="https://github.com/w1zardz/bedrock-nbt-editor" rel="noopener">Kode di GitHub</a><a href="../llms.txt">llms.txt</a></div>
 </div>
-<p class="footer-note">Last updated 2026-08-26. Minecraft NBT Editor — gratis, open source (MIT), jalankan entirely di bro your browser. Not affiliated with Mojang Studios or Microsoft. Minecraft is a trademark of Mojang Studios.</p>
+<p class="footer-note">Last updated 2026-08-26. Minecraft NBT Editor — gratis, open source (MIT), jalankan entirely di browser. Tidak berafiliasi dengan Mojang Studios atau Microsoft. Minecraft a trademark of Mojang Studios.</p>
 </footer>
 
 <div class="toast-container" id="toastContainer" aria-live="polite"></div>
@@ -222,7 +222,7 @@ const out = await NBT.write(root, format, { compression, headerVersion });</code
 <h3>Tambahkan tag baru</h3>
 <label for="newTagName">Nama tag</label>
 <input type="text" id="newTagName" placeholder="e.g. MyTag" autocomplete="off">
-<label for="newTagType">Tag Tipe</label>
+<label for="newTagType">Tipe Tag</label>
 <select id="newTagType">
 <option value="1">TAG_Byte</option>
 <option value="2">TAG_Short</option>
@@ -237,10 +237,10 @@ const out = await NBT.write(root, format, { compression, headerVersion });</code
 <option value="11">TAG_Int_Array</option>
 <option value="12">TAG_Long_Array</option>
 </select>
-<label for="newTagValue">Value</label>
+<label for="newTagValue">Nilai</label>
 <input type="text" id="newTagValue" placeholder="Value" autocomplete="off">
-<div id="listSubtypeRow" style="display:none
-<label for="newListSubtype">List Element Type</label>
+<div id="listSubtypeRow" style="display:none">
+<label for="newListSubtype">Daftar Tipe Elemen</label>
 <select id="newListSubtype">
 <option value="1">TAG_Byte</option>
 <option value="2">TAG_Short</option>
@@ -257,8 +257,8 @@ const out = await NBT.write(root, format, { compression, headerVersion });</code
 </select>
 </div>
 <div class="modal-btns">
-<button class="btn-cancel" type="button" id="addTagCancel">Cancel</button>
-<button class="btn-confirm" type="button" id="addTagConfirm">Add</button>
+<button class="btn-cancel" type="button" id="addTagCancel">Batal</button>
+<button class="btn-confirm" type="button" id="addTagConfirm">Tambahkan</button>
 </div>
 </div>
 </div>
@@ -269,8 +269,8 @@ const out = await NBT.write(root, format, { compression, headerVersion });</code
 <label for="arrayModalText">Comma-separated values</label>
 <textarea id="arrayModalText" spellcheck="false" autocomplete="off"></textarea>
 <div class="modal-btns">
-<button class="btn-cancel" type="button" id="arrayModalCancel">Cancel</button>
-<button class="btn-confirm" type="button" id="arrayModalConfirm">Apply</button>
+<button class="btn-cancel" type="button" id="arrayModalCancel">Batal</button>
+<button class="btn-confirm" type="button" id="arrayModalConfirm">Terapkan</button>
 </div>
 </div>
 </div>
@@ -278,4 +278,3 @@ const out = await NBT.write(root, format, { compression, headerVersion });</code
 <script src="../assets/nbt.js?v=da7967b1" defer></script>
 </body>
 </html>
-
