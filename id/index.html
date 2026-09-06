@@ -209,10 +209,10 @@ const out = await NBT.write(root, format, { compression, headerVersion });</code
 <div class="container footer-grid">
 <div><h4>Semua Editor</h4><a href="./">Minecraft NBT editor</a><a href="level-dat-editor/">level.dat editor</a><a href="java-nbt-editor/">Java Edition NBT editor</a><a href="mcpe-nbt-editor/">MCPE NBT editor</a><a href="pocketmine-nbt-editor/">PocketMine-MP editor</a></div>
 <div><h4>Tipe file</h4><a href="mcstructure-editor/">.mcstructure editor</a><a href="schematic-editor/">Schematic editor</a><a href="playerdata-editor/">playerdata editor</a><a href="nbt-viewer/">NBT viewer</a><a href="nbtexplorer-online/">NBTExplorer online</a></div>
-<div><h4>Referensi</h4><a href="nbt-format/">Format NBT</a><a href="guides/change-world-name/">Ganti nama dunia <a href="guides/fix-corrupted-level-dat/">Perbaiki level.dat yang rusak</a><a href="guides/edit-gamerules/">Edit game rules</a></div>
+<div><h4>Referensi</h4><a href="nbt-format/">Format NBT</a><a href="guides/change-world-name/">Ganti nama dunia</a><a href="guides/fix-corrupted-level-dat">Perbaiki level.dat yang rusak</a><a href="guides/edit-gamerules/">Edit game rules</a></div>
 <div><h4>Sumber</h4><a href="https://github.com/w1zardz/bedrock-nbt-editor" rel="noopener">Kode di GitHub</a><a href="../llms.txt">llms.txt</a></div>
 </div>
-<p class="footer-note">Last updated 2026-08-26. Minecraft NBT Editor — gratis, open source (MIT), runs entirely in your browser. Not affiliated with Mojang Studios or Microsoft. Minecraft is a trademark of Mojang Studios.</p>
+<p class="footer-note">Last updated 2026-08-26. Minecraft NBT Editor — gratis, open source (MIT), jalankan entirely di bro your browser. Not affiliated with Mojang Studios or Microsoft. Minecraft is a trademark of Mojang Studios.</p>
 </footer>
 
 <div class="toast-container" id="toastContainer" aria-live="polite"></div>
@@ -222,7 +222,7 @@ const out = await NBT.write(root, format, { compression, headerVersion });</code
 <h3>Tambahkan tag baru</h3>
 <label for="newTagName">Nama tag</label>
 <input type="text" id="newTagName" placeholder="e.g. MyTag" autocomplete="off">
-<label for="newTagType">Tag Ty</label>
+<label for="newTagType">Tag Tipe</label>
 <select id="newTagType">
 <option value="1">TAG_Byte</option>
 <option value="2">TAG_Short</option>
@@ -240,7 +240,7 @@ const out = await NBT.write(root, format, { compression, headerVersion });</code
 <label for="newTagValue">Value</label>
 <input type="text" id="newTagValue" placeholder="Value" autocomplete="off">
 <div id="listSubtypeRow" style="display:none
-<label for="newListSubtype">List Element Type</lan
+<label for="newListSubtype">List Element Type</label>
 <select id="newListSubtype">
 <option value="1">TAG_Byte</option>
 <option value="2">TAG_Short</option>
@@ -278,3 +278,4 @@ const out = await NBT.write(root, format, { compression, headerVersion });</code
 <script src="../assets/nbt.js?v=da7967b1" defer></script>
 </body>
 </html>
+
