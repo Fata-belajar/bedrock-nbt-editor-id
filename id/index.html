@@ -123,15 +123,15 @@
 </div>
 <div id="contentSections">
 <nav class="toc" aria-label="On this page"><h2 id="on-this-page">Di halaman ini</h2><ul><li><a href="#every-nbt-file-minecraft-writes">Setiap File NBT Minecraft ditulis</a></li><li><a href="#how-to-edit-an-nbt-file">Bagaimana cara mengedit file NBT</a></li><li><a href="#what-makes-this-editor-different">What makes this editor different</a></li><li><a href="#supported-server-software-all-of-it">Supported server software — all of it</a></li><li><a href="#use-the-parser-from-your-own-code">Use the parser from your own code</a></li></ul></nav>
-<section class="content" aria-label="Supported files">
-<h2 id="every-nbt-file-minecraft-writes">Every NBT file Minecraft writes</h2>
-<p>NBT (Named Binary Tag) is one format with several encodings, and every Minecraft edition, launcher and server core uses a different combination of them. This editor implements all of them and picks the right one from the bytes themselves, so you never have to know which variant a file is before you open it.</p>
+<section class="content" aria-label="File yang didukung">
+<h2 id="file-nbt-file-minecraft-writes">Setiap file NBT Minecraft ditulis</h2>
+<p>NBT (Named Binary Tag) with several encodings, and every Minecraft edition, launcher and server core uses a different combination of them. This editor implements all of them and picks the right one from the bytes themselves, so you never have to know which variant a file is before you open it.</p>
 <div class="table-wrap">
 <table class="matrix">
 <thead><tr><th>File</th><th>Comes from</th><th>Encoding</th><th>Compression</th></tr></thead>
 <tbody>
-<tr><td><code>level.dat</code></td><td>Java world — Vanilla, Paper, Spigot, Fabric, Forge</td><td>Big-endian, named root</td><td>gzip</td></tr>
-<tr><td><code>level.dat</code></td><td>Bedrock world — BDS, PocketMine-MP, Nukkit, MCPE</td><td>Little-endian + 8-byte header</td><td>None</td></tr>
+<tr><td><code>level.dat</code></td><td>Dunia Java — Vanilla, Paper, Spigot, Fabric, Forge</td><td>Big-endian, named root</td><td>gzip</td></tr>
+<tr><td><code>level.dat</code></td><td>Dunia Bedrock — BDS, PocketMine-MP, Nukkit, MCPE</td><td>Little-endian + 8-byte header</td><td>Tidak ada</td></tr>
 <tr><td><code>&lt;uuid&gt;.dat</code></td><td>Java <code>playerdata/</code></td><td>Big-endian</td><td>gzip</td></tr>
 <tr><td><code>servers.dat</code>, <code>hotbar.nbt</code></td><td>Java client</td><td>Big-endian</td><td>None</td></tr>
 <tr><td><code>idcounts.dat</code>, <code>raids.dat</code>, <code>map_*.dat</code></td><td>Java world <code>data/</code></td><td>Big-endian</td><td>gzip</td></tr>
@@ -145,21 +145,21 @@
 </div>
 </section>
 
-<section class="content" aria-label="How to use">
-<h2 id="how-to-edit-an-nbt-file">How to edit an NBT file</h2>
+<section class="content" aria-label="Cara menggunakan">
+<h2 id="how-to-edit-an-nbt-file">Cara mengedit file NBT Minecraft</h2>
 <div class="card">
 <ol class="steps">
 <li><strong>Get the file off the server or device.</strong> Java servers keep it in <code>world/</code>, Bedrock servers in <code>worlds/YourWorld/</code>, Android in <code>games/com.mojang/minecraftWorlds/&lt;id&gt;/</code>. Stop the server first so the file is not being written while you copy it.</li>
-<li><strong>Drop it into the editor.</strong> The badge above the tree tells you what was detected — edition, encoding, compression and, for Bedrock, the storage version from the header.</li>
+<li><strong>Letakkan ke dalam editor.</strong> The badge above the tree tells you what was detected — edition, encoding, compression and, for Bedrock, the storage version from the header.</li>
 <li><strong>Edit.</strong> Tap a value to change it in place. Use search to jump to a tag by name or value, <strong>+</strong> to add tags to any compound or list, <strong>×</strong> to remove them.</li>
-<li><strong>Save &amp; Download.</strong> The output format and compression selectors default to whatever the file arrived as, so a plain edit is a byte-faithful round trip.</li>
+<li><strong>Simpan &amp; Unduh.</strong> The output format and compression selectors default to whatever the file arrived as, so a plain edit is a byte-faithful round trip.</li>
 <li><strong>Put it back and restart.</strong> Keep the original as a backup until the world has loaded once and looks right.</li>
 </ol>
 </div>
 </section>
 
 <section class="content" aria-label="Features">
-<h2 id="what-makes-this-editor-different">What makes this editor different</h2>
+<h2 id="what-makes-this-editor-different">Hal yang membuat editor ini berbeda</h2>
 <div class="features-grid">
 <article class="feature-card"><h3>Five encodings, one drop zone</h3><p>Java big-endian, Bedrock little-endian, Bedrock varint network NBT, nameless-root network NBT from Java 1.20.2+, and Bedrock's headered <code>level.dat</code>. Detected, not guessed.</p></article>
 <article class="feature-card"><h3>gzip and zlib in the browser</h3><p>Decompression and recompression use the native Compression Streams API, so a Java <code>level.dat</code> round-trips into a file the game accepts unchanged.</p></article>
@@ -207,22 +207,22 @@ const out = await NBT.write(root, format, { compression, headerVersion });</code
 
 <footer class="site-footer">
 <div class="container footer-grid">
-<div><h4>Editors</h4><a href="./">Minecraft NBT editor</a><a href="level-dat-editor/">level.dat editor</a><a href="java-nbt-editor/">Java Edition NBT editor</a><a href="mcpe-nbt-editor/">MCPE NBT editor</a><a href="pocketmine-nbt-editor/">PocketMine-MP editor</a></div>
-<div><h4>File types</h4><a href="mcstructure-editor/">.mcstructure editor</a><a href="schematic-editor/">Schematic editor</a><a href="playerdata-editor/">playerdata editor</a><a href="nbt-viewer/">NBT viewer</a><a href="nbtexplorer-online/">NBTExplorer online</a></div>
-<div><h4>Reference</h4><a href="nbt-format/">NBT format reference</a><a href="guides/change-world-name/">Rename a world</a><a href="guides/fix-corrupted-level-dat/">Fix a broken level.dat</a><a href="guides/edit-gamerules/">Edit game rules</a></div>
-<div><h4>Source</h4><a href="https://github.com/w1zardz/bedrock-nbt-editor" rel="noopener">Code on GitHub</a><a href="../llms.txt">llms.txt</a></div>
+<div><h4>Semua Editor</h4><a href="./">Minecraft NBT editor</a><a href="level-dat-editor/">level.dat editor</a><a href="java-nbt-editor/">Java Edition NBT editor</a><a href="mcpe-nbt-editor/">MCPE NBT editor</a><a href="pocketmine-nbt-editor/">PocketMine-MP editor</a></div>
+<div><h4>Tipe file</h4><a href="mcstructure-editor/">.mcstructure editor</a><a href="schematic-editor/">Schematic editor</a><a href="playerdata-editor/">playerdata editor</a><a href="nbt-viewer/">NBT viewer</a><a href="nbtexplorer-online/">NBTExplorer online</a></div>
+<div><h4>Referensi</h4><a href="nbt-format/">Format NBT</a><a href="guides/change-world-name/">Ganti nama dunia <a href="guides/fix-corrupted-level-dat/">Perbaiki level.dat yang rusak</a><a href="guides/edit-gamerules/">Edit game rules</a></div>
+<div><h4>Sumber</h4><a href="https://github.com/w1zardz/bedrock-nbt-editor" rel="noopener">Kode di GitHub</a><a href="../llms.txt">llms.txt</a></div>
 </div>
-<p class="footer-note">Last updated 2026-08-26. Minecraft NBT Editor — free, open source (MIT), runs entirely in your browser. Not affiliated with Mojang Studios or Microsoft. Minecraft is a trademark of Mojang Studios.</p>
+<p class="footer-note">Last updated 2026-08-26. Minecraft NBT Editor — gratis, open source (MIT), runs entirely in your browser. Not affiliated with Mojang Studios or Microsoft. Minecraft is a trademark of Mojang Studios.</p>
 </footer>
 
 <div class="toast-container" id="toastContainer" aria-live="polite"></div>
 
 <div class="modal-overlay" id="addTagModal">
 <div class="modal">
-<h3>Add New Tag</h3>
-<label for="newTagName">Tag Name</label>
+<h3>Tambahkan tag baru</h3>
+<label for="newTagName">Nama tag</label>
 <input type="text" id="newTagName" placeholder="e.g. MyTag" autocomplete="off">
-<label for="newTagType">Tag Type</label>
+<label for="newTagType">Tag Ty</label>
 <select id="newTagType">
 <option value="1">TAG_Byte</option>
 <option value="2">TAG_Short</option>
@@ -239,8 +239,8 @@ const out = await NBT.write(root, format, { compression, headerVersion });</code
 </select>
 <label for="newTagValue">Value</label>
 <input type="text" id="newTagValue" placeholder="Value" autocomplete="off">
-<div id="listSubtypeRow" style="display:none">
-<label for="newListSubtype">List Element Type</label>
+<div id="listSubtypeRow" style="display:none
+<label for="newListSubtype">List Element Type</lan
 <select id="newListSubtype">
 <option value="1">TAG_Byte</option>
 <option value="2">TAG_Short</option>
