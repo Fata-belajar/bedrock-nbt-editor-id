@@ -67,7 +67,7 @@
 <div class="container">
 <h1>NBT Editor Bedrock — dan Java Edition</h1>
 <p class="support-line"><strong>Mendukung Minecraft Bedrock Edition dan Java Edition</strong> — dan setiap core server untuk keduanya, populer or obscure: Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Forge, NeoForge, Mohist, Sponge, Bedrock Dedicated Server, PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina and the rest. <a href="./#server-software">Daftar lengkap</a>.</p>
-<p class="lede"><strong>Bedrock Edition is supported, with every Bedrock server core — and so is Java Edition, with every Java server core, down to the obscure ones.</strong> Drop a <code>level.dat</code>, <code>playerdata</code>, <code>.nbt</code>, <code>.mcstructure</code>, <code>.schem</code> or <code>.schematic</code> file into the box below, edit any tag in the tree, and download it back in exactly the same binary format. Byte order, header and compression are detected automatically. Everything runs in your browser — no upload, no account, no install.</p>
+<p class="lede"><strong>Mendukung Bedrock Edition, dengan setiap inti server Bedrock — dan hal yang sama untuk Java Edition, dengan setiap inti server Java, sampai ke yang paling tidak dikenal sekalipun.</strong> Masukkan <code>level.dat</code>, <code>playerdata</code>, <code>.nbt</code>, <code>.mcstructure</code>, <code>.schem</code> or <code>.schematic</code> file kedalam kotak dibawah, edit tag apapun dalam struktur tree (pohon), dan unduh kembali dalam format biner yang sama. Urutan Byte, judul and kompresi akan terdeteksi secara otomatis. Semuanya dijalankan di browser anda — tanpa unggahan, tanpa akun, tanpa mengunduh apapun.</p>
 <div class="chips"><span class="chip">Bedrock Edition</span><span class="chip">Java Edition</span><span class="chip">Vanilla</span><span class="chip">Paper</span><span class="chip">Spigot</span><span class="chip">Purpur</span><span class="chip">Pufferfish</span><span class="chip">Folia</span><span class="chip">Leaves</span><span class="chip">Fabric</span><span class="chip">Quilt</span><span class="chip">Forge</span><span class="chip">NeoForge</span><span class="chip">Mohist</span><span class="chip">Arclight</span><span class="chip">Sponge</span><span class="chip">Bedrock Dedicated Server</span><span class="chip">PocketMine-MP</span><span class="chip">Nukkit</span><span class="chip">PowerNukkitX</span><span class="chip">Nukkit-MOT</span><span class="chip">Cloudburst</span><span class="chip">Dragonfly</span><span class="chip">Endstone</span><span class="chip">LeviLamina</span><span class="chip">Allay</span><span class="chip">JukeboxMC</span><span class="chip">GoMint</span><span class="chip">Geyser</span><span class="chip">WaterdogPE</span></div>
 </div>
 </section>
@@ -94,9 +94,9 @@
 <option value="bedrock-network">Bedrock network — little-endian varint</option>
 </select>
 </label>
-<label>Compression
+<label>Kompresi
 <select id="outCompression">
-<option value="none">None (raw)</option>
+<option value="none">Tidak ada (raw)</option>
 <option value="gzip">gzip</option>
 <option value="zlib">zlib (deflate)</option>
 </select>
@@ -104,8 +104,8 @@
 </div>
 
 <div class="search-bar">
-<input type="search" id="searchInput" placeholder="Search tag name or value…" autocomplete="off" spellcheck="false" aria-label="Search NBT tags">
-<button type="button" id="btnSearch">Search</button>
+<input type="search" id="searchInput" placeholder="Cari nama tag atau nilai…" autocomplete="off" spellcheck="false" aria-label="Cari tag NBT">
+<button type="button" id="btnSearch">Cari</button>
 <button type="button" id="btnCollapse">Collapse all</button>
 </div>
 <div class="search-results" id="searchResults"></div>
@@ -114,15 +114,15 @@
 </div>
 
 <div class="bottom-bar" id="bottomBar">
-<button class="btn-add" id="btnAddRoot" type="button">+ Add Tag</button>
-<button class="btn-save" id="btnSave" type="button">Save &amp; Download</button>
-<button class="btn-snbt" id="btnSnbt" type="button">Export SNBT</button>
-<button class="btn-close" id="btnCloseFile" type="button">Close</button>
+<button class="btn-add" id="btnAddRoot" type="button">+ Tambahkan tag</button>
+<button class="btn-save" id="btnSave" type="button">Simpan &amp; Unduh</button>
+<button class="btn-snbt" id="btnSnbt" type="button">Ekspor SNBT</button>
+<button class="btn-close" id="btnCloseFile" type="button">Tutup</button>
 </div>
 
 </div>
 <div id="contentSections">
-<nav class="toc" aria-label="On this page"><h2 id="on-this-page">On this page</h2><ul><li><a href="#every-nbt-file-minecraft-writes">Every NBT file Minecraft writes</a></li><li><a href="#how-to-edit-an-nbt-file">How to edit an NBT file</a></li><li><a href="#what-makes-this-editor-different">What makes this editor different</a></li><li><a href="#supported-server-software-all-of-it">Supported server software — all of it</a></li><li><a href="#use-the-parser-from-your-own-code">Use the parser from your own code</a></li></ul></nav>
+<nav class="toc" aria-label="On this page"><h2 id="on-this-page">Di halaman ini</h2><ul><li><a href="#every-nbt-file-minecraft-writes">Setiap File NBT Minecraft ditulis</a></li><li><a href="#how-to-edit-an-nbt-file">Bagaimana cara mengedit file NBT</a></li><li><a href="#what-makes-this-editor-different">What makes this editor different</a></li><li><a href="#supported-server-software-all-of-it">Supported server software — all of it</a></li><li><a href="#use-the-parser-from-your-own-code">Use the parser from your own code</a></li></ul></nav>
 <section class="content" aria-label="Supported files">
 <h2 id="every-nbt-file-minecraft-writes">Every NBT file Minecraft writes</h2>
 <p>NBT (Named Binary Tag) is one format with several encodings, and every Minecraft edition, launcher and server core uses a different combination of them. This editor implements all of them and picks the right one from the bytes themselves, so you never have to know which variant a file is before you open it.</p>
